@@ -1,0 +1,9 @@
+configuration: Release
+
+# restore NuGet packages before running MSBuild
+before_build:
+  - nuget restore
+
+build:
+  project: swiftly-services-exercse.csproj
+  publish_core_console: true
