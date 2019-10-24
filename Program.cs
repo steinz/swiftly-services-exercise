@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace swiftly_services_exercse
+namespace swiftly_services_exercise
 {
     class Program
     {

@@ -1,1 +1,1 @@
-# swiftly-services-exercse
+# swiftly-services-exercise
