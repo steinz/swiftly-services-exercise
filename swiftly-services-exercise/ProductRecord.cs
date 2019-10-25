@@ -16,5 +16,11 @@ namespace swiftly_services_exercise
 
         public UnitOfMeasure Measure { get; set; }
         public string ProductSize { get; set; }
+
+        override public string ToString() {
+            return $"ProductRecord({ProductID}, {RegularDisplayPrice}, {PromotionalDisplayPrice})";
+        }
+
+        // TODO: HashCode, Equals
     }
 }
