@@ -5,5 +5,5 @@ configuration: Release
 #  - nuget restore
 
 build:
-  project: swiftly-services-exercse.csproj
+  project: swiftly-services-exercise.csproj
   publish_core_console: true
