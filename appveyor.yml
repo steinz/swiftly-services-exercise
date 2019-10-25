@@ -3,8 +3,8 @@ configuration: Release
 image: Visual Studio 2019
 
 # restore NuGet packages before running MSBuild
-#before_build:
-#  - nuget restore
+before_build:
+  - nuget restore
 
 build:
   project: swiftly-services-exercise.csproj
