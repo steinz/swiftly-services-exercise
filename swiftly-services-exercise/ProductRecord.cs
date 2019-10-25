@@ -2,9 +2,9 @@
 
 namespace swiftly_services_exercise
 {
-    enum UnitOfMeasure { Each, Pound }
+    public enum UnitOfMeasure { Each, Pound }
 
-    class ProductRecord
+    public class ProductRecord
     {
         public int ProductID { get; set; }
         public string ProductDescription { get; set; }
@@ -18,7 +18,7 @@ namespace swiftly_services_exercise
         public UnitOfMeasure Measure { get; set; }
         public string ProductSize { get; set; }
 
-        static ProductRecord FromString(string s) {
+        public static ProductRecord FromString(string s) {
             ProductRecord result = new ProductRecord();
 
             result.ProductID = int.Parse(s.Substring(0, 8));
