@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <RootNamespace>swiftly_services_exercse</RootNamespace>
+    <RootNamespace>swiftly_services_exercise</RootNamespace>
   </PropertyGroup>
 
 </Project>
