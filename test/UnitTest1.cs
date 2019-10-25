@@ -14,7 +14,8 @@ namespace test
         [Test]
         public void Test1()
         {
-            ProductRecord product = ProductRecord.FromString(
+            SampleFormatParser parser = new SampleFormatParser();
+            ProductRecord product = parser.Parse(
                 "80000001 Kimchi-flavored white rice                                  00000567 00000000 00000000 00000000 00000000 00000000 NNNNNNNNN      18oz");
             
             Assert.That(product.ProductID, Is.EqualTo(80000001));
@@ -30,7 +31,8 @@ namespace test
         [Test]
         public void TestParsingBoundaries_SinglePrice()
         {
-            ProductRecord product = ProductRecord.FromString(
+            SampleFormatParser parser = new SampleFormatParser();
+            ProductRecord product = parser.Parse(
                 "555555556aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab555555556444444446000000006000000006000000006000000006NNNNNNNNNYaaaaaaaaa");
 
             // TODO: Test against SampleProductFormat instead of ProductRecord class/interface
