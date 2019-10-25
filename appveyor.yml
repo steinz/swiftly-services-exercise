@@ -4,8 +4,8 @@ image: Visual Studio 2019
 
 # restore NuGet packages before running MSBuild
 before_build:
-  - nuget restore -PackagesDirectory packages swiftly-services-exercise.csproj
+  - nuget restore -PackagesDirectory packages swiftly-exercise.sln
 
 build:
-  project: swiftly-services-exercise.csproj
+  project: swiftly-exercise.sln
   publish_core_console: true
