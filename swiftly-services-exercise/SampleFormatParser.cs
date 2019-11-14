@@ -11,14 +11,13 @@ namespace swiftly_services_exercise
         /// The string currently being parsed.
         private string m_s;
 
-        // TODO: Consider other currency types.
+        // TODO: Consider representing currency with other types.
         decimal ParseCurrency(int i, int l) {
             return decimal.Parse(m_s.Substring(i, l)) / 100m;
         }
 
         string FormatCurrencyForDisplay(decimal x) {
             // TODO: Consider culture specific formatting.
-            // TODO: Commas
             // TODO: Use decimal.ToString("C"); in a real implementation.
             var rounded = decimal.Round(x, 2, System.MidpointRounding.ToZero);
             var fixedWidth = rounded.ToString("N2");
@@ -54,7 +53,6 @@ namespace swiftly_services_exercise
             result.ProductID = int.Parse(s.Substring(0, 8));
             result.ProductDescription = s.Substring(9, 59).Trim();
             
-            // TODO: 106 off by one?
             result.RegularCalculatorPrice = CalculatorPrice(69, 87, 105);
             result.RegularDisplayPrice = FormatCurrencyForDisplay(result.RegularCalculatorPrice);
 

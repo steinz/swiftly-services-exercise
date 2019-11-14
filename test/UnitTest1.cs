@@ -106,7 +106,7 @@ namespace test
                 "555555556aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab555555556444444446000000006000000006000000006000000006NNNNNNNNNYaaaaaaaaa");
 
             // TODO: Test against SampleProductFormat instead of ProductRecord class/interface
-            // so that we can check ForX values.
+            // so that we can check intermediate values like ForX.
             Assert.That(product.ProductID, Is.EqualTo(55555555));
             Assert.That(product.ProductDescription, Is.EqualTo(new String('a', 59)));
             Assert.That(product.RegularCalculatorPrice, Is.EqualTo(555555.55m));
