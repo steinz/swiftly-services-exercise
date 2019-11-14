@@ -27,6 +27,6 @@ Or:
 
 ## Continuous Integration Build/Release
 
-[Latest AppVeyor build] (https://ci.appveyor.com/project/steinz/swiftly-services-exercise)
+[Latest AppVeyor build](https://ci.appveyor.com/project/steinz/swiftly-services-exercise)
 
 An executable can be downloaded from the [Artifacts](https://ci.appveyor.com/project/steinz/swiftly-services-exercise/build/artifacts) tab.
