@@ -1,9 +1,10 @@
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace swiftly_services_exercise
 {
     // TODO: Internal
-    public class ProductRecord
+    public class ProductRecord : IProductRecord
     {
         public int ProductID { get; set; }
         public string ProductDescription { get; set; }
@@ -17,8 +18,20 @@ namespace swiftly_services_exercise
         public UnitOfMeasure Measure { get; set; }
         public string ProductSize { get; set; }
 
+        // TODO: This probably belongs in a ProductRecordFormatter class.
         override public string ToString() {
-            return $"ProductRecord({ProductID}, {RegularDisplayPrice}, {PromotionalDisplayPrice})";
+            IEnumerable<object> fields = new List<object>{
+                ProductID,
+                ProductDescription,
+                RegularCalculatorPrice,
+                RegularDisplayPrice,
+                PromotionalCalculatorPrice,
+                PromotionalDisplayPrice,
+                TaxRate,
+                Measure,
+                ProductSize};
+            var joined = string.Join(", ", fields.Select(x => x.ToString()));
+            return $"ProductRecord({joined})";
         }
 
         // TODO: HashCode, Equals

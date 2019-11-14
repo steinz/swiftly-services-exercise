@@ -4,7 +4,7 @@ namespace swiftly_services_exercise
 
     // Parses the sample format described in the spec at
     // https://github.com/Swiftly-Systems/code-exercise-services/blob/master/ProductInformationIntegrationSpec.md
-    public class SampleFormatParser
+    public class SampleFormatParser : IProductRecordParser
     {
         // TODO: Replace magic numbers with statics.
 
@@ -45,7 +45,7 @@ namespace swiftly_services_exercise
             return c == 'Y';
         }
 
-        public ProductRecord Parse(string s) {
+        public IProductRecord Parse(string s) {
             m_s = s;
 
             var result = new ProductRecord();

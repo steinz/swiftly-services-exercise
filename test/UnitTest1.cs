@@ -17,7 +17,7 @@ namespace test
         public void Test1()
         {
             SampleFormatParser parser = new SampleFormatParser();
-            ProductRecord product = parser.Parse(
+            IProductRecord product = parser.Parse(
                 "80000001 Kimchi-flavored white rice                                  00000567 00000000 00000000 00000000 00000000 00000000 NNNNNNNNN      18oz");
             
             Assert.That(product.ProductID, Is.EqualTo(80000001));
@@ -38,7 +38,7 @@ namespace test
         public void Test2()
         {
             SampleFormatParser parser = new SampleFormatParser();
-            ProductRecord product = parser.Parse(
+            IProductRecord product = parser.Parse(
                 "14963801 Generic Soda 12-pack                                        00000000 00000549 00001300 00000000 00000002 00000000 NNNNYNNNN   12x12oz");
 
             Assert.That(product.ProductID, Is.EqualTo(14963801));
@@ -59,7 +59,7 @@ namespace test
         public void Test3()
         {
             SampleFormatParser parser = new SampleFormatParser();
-            ProductRecord product = parser.Parse(
+            IProductRecord product = parser.Parse(
                 "40123401 Marlboro Cigarettes                                         00001000 00000549 00000000 00000000 00000000 00000000 YNNNNNNNN          ");
 
             Assert.That(product.ProductID, Is.EqualTo(40123401));
@@ -80,7 +80,7 @@ namespace test
         public void Test4()
         {
             SampleFormatParser parser = new SampleFormatParser();
-            ProductRecord product = parser.Parse(
+            IProductRecord product = parser.Parse(
                 "50133333 Fuji Apples (Organic)                                       00000349 00000000 00000000 00000000 00000000 00000000 NNYNNNNNN        lb");
 
             Assert.That(product.ProductID, Is.EqualTo(50133333));
@@ -102,7 +102,7 @@ namespace test
         public void TestParsingBoundaries_SinglePrice()
         {
             SampleFormatParser parser = new SampleFormatParser();
-            ProductRecord product = parser.Parse(
+            IProductRecord product = parser.Parse(
                 "555555556aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab555555556444444446000000006000000006000000006000000006NNNNNNNNNYaaaaaaaaa");
 
             // TODO: Test against SampleProductFormat instead of ProductRecord class/interface

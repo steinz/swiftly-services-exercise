@@ -13,9 +13,9 @@ namespace swiftly_services_exercise
 
             string path = args[0];
             try {
-                SampleFormatParser parser = new SampleFormatParser();
+                IProductRecordParser parser = new SampleFormatParser();
                 foreach (string line in System.IO.File.ReadLines(path)) {
-                    ProductRecord product_record = parser.Parse(line);
+                    IProductRecord product_record = parser.Parse(line);
                     Console.WriteLine(product_record.ToString());
                 }
             } catch (Exception e) {

@@ -18,6 +18,10 @@ Run unit tests:
 
 Run the program on a sample input file with:
 
+* `dotnet run --project .\swiftly-services-exercise\swiftly-services-exercise.csproj .\input-sample.txt`
+
+Or:
+
 * `cd swiftly-services-exercise`
 * `dotnet run ..\input-sample.txt`
 
