@@ -1,7 +1,5 @@
 namespace swiftly_services_exercise
 {
-    // TODO: Parser interface
-
     // Parses the sample format described in the spec at
     // https://github.com/Swiftly-Systems/code-exercise-services/blob/master/ProductInformationIntegrationSpec.md
     public class SampleFormatParser : IProductRecordParser

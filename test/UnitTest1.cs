@@ -23,7 +23,6 @@ namespace test
             Assert.That(product.ProductID, Is.EqualTo(80000001));
             Assert.That(product.ProductDescription, Is.EqualTo("Kimchi-flavored white rice"));
             Assert.That(product.RegularCalculatorPrice, Is.EqualTo(5.67m));
-            // TODO: Revisit output formatting
             Assert.That(product.RegularDisplayPrice, Is.EqualTo("$5.67"));
             Assert.That(product.PromotionalCalculatorPrice, Is.EqualTo(0m));
             Assert.That(product.PromotionalDisplayPrice, Is.EqualTo("N/A"));
@@ -44,7 +43,6 @@ namespace test
             Assert.That(product.ProductID, Is.EqualTo(14963801));
             Assert.That(product.ProductDescription, Is.EqualTo("Generic Soda 12-pack"));
             Assert.That(product.RegularCalculatorPrice, Is.EqualTo(6.50m));
-            // TODO: Revisit output formatting
             Assert.That(product.RegularDisplayPrice, Is.EqualTo("$6.50"));
             Assert.That(product.PromotionalCalculatorPrice, Is.EqualTo(5.49m));
             Assert.That(product.PromotionalDisplayPrice, Is.EqualTo("$5.49"));
@@ -65,7 +63,6 @@ namespace test
             Assert.That(product.ProductID, Is.EqualTo(40123401));
             Assert.That(product.ProductDescription, Is.EqualTo("Marlboro Cigarettes"));
             Assert.That(product.RegularCalculatorPrice, Is.EqualTo(10.00m));
-            // TODO: Revisit output formatting
             Assert.That(product.RegularDisplayPrice, Is.EqualTo("$10.00"));
             Assert.That(product.PromotionalCalculatorPrice, Is.EqualTo(5.49m));
             Assert.That(product.PromotionalDisplayPrice, Is.EqualTo("$5.49"));
@@ -86,7 +83,6 @@ namespace test
             Assert.That(product.ProductID, Is.EqualTo(50133333));
             Assert.That(product.ProductDescription, Is.EqualTo("Fuji Apples (Organic)"));
             Assert.That(product.RegularCalculatorPrice, Is.EqualTo(3.49m));
-            // TODO: Revisit output formatting
             Assert.That(product.RegularDisplayPrice, Is.EqualTo("$3.49"));
             Assert.That(product.PromotionalCalculatorPrice, Is.EqualTo(0.0m));
             Assert.That(product.PromotionalDisplayPrice, Is.EqualTo("N/A"));
