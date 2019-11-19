@@ -4,14 +4,9 @@ using System;
 
 namespace test
 {
-    public class Tests
+    public class SampleFormatParserTests
     {
         private const decimal TaxRate = 7.775m;
-
-        [SetUp]
-        public void Setup()
-        {
-        }
 
         [Test]
         public void Test1()
@@ -91,24 +86,6 @@ namespace test
             Assert.That(product.Measure, Is.EqualTo(UnitOfMeasure.Pound));
 
             Assert.That(product.ProductSize, Is.EqualTo("lb"));
-        }
-
-
-        [Test]
-        public void TestParsingBoundaries_SinglePrice()
-        {
-            SampleFormatParser parser = new SampleFormatParser();
-            IProductRecord product = parser.Parse(
-                "555555556aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab555555556444444446000000006000000006000000006000000006NNNNNNNNNYaaaaaaaaa");
-
-            // TODO: Test against SampleProductFormat instead of ProductRecord class/interface
-            // so that we can check intermediate values like ForX.
-            Assert.That(product.ProductID, Is.EqualTo(55555555));
-            Assert.That(product.ProductDescription, Is.EqualTo(new String('a', 59)));
-            Assert.That(product.RegularCalculatorPrice, Is.EqualTo(555555.55m));
-            Assert.That(product.PromotionalCalculatorPrice, Is.EqualTo(444444.44m));
-            // TODO: Flags
-            Assert.That(product.ProductSize, Is.EqualTo(new String('a', 9)));
         }
     }
 }
