@@ -42,7 +42,10 @@ namespace swiftly_services_exercise
 
         public IProductRecord Parse(string s) {
             RawSampleProductFormat raw = new RawSampleProductFormat(s);
+            return Parse(raw);
+        }
 
+        IProductRecord Parse(RawSampleProductFormat raw) {
             var result = new ProductRecord();
 
             result.ProductID = int.Parse(raw.ProductId);
