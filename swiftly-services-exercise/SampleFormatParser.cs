@@ -6,12 +6,9 @@ namespace swiftly_services_exercise
     {
         // TODO: Replace magic numbers with statics.
 
-        /// The string currently being parsed.
-        private string m_s;
-
         // TODO: Consider representing currency with other types.
-        decimal ParseCurrency(int i, int l) {
-            return decimal.Parse(m_s.Substring(i, l)) / 100m;
+        decimal ParseCurrency(string s) {
+            return decimal.Parse(s) / 100m;
         }
 
         string FormatCurrencyForDisplay(decimal x) {
@@ -22,47 +19,48 @@ namespace swiftly_services_exercise
             return $"${fixedWidth}";
         }
 
-        decimal CalculatorPrice(int singularPriceIndex, int splitPriceIndex, int forXIndex) {
-            decimal singularPrice = ParseCurrency(singularPriceIndex, 8);
-            decimal calculatorPrice;
-            if (singularPrice != 0) {
-                calculatorPrice = singularPrice;
+        decimal CalculatorPrice(string singularPrice, string splitPrice, string forX) {
+            decimal singular = ParseCurrency(singularPrice);
+            decimal calculator;
+            if (singular != 0) {
+                calculator = singular;
             } else {
-                decimal splitPrice = ParseCurrency(splitPriceIndex, 8);
-                int forX = int.Parse(m_s.Substring(forXIndex, 8));
-                calculatorPrice = splitPrice == 0 ? 0 : splitPrice / forX;
+                decimal split = ParseCurrency(splitPrice);
+                int amount = int.Parse(forX);
+                calculator = split == 0 ? 0 : split / amount;
             }
-            return decimal.Round(calculatorPrice, 4, System.MidpointRounding.ToZero);
+            return decimal.Round(calculator, 4, System.MidpointRounding.ToZero);
         }
 
-        bool CheckFlag(int i) {
+        bool CheckFlag(string flags, int i) {
             // TODO: Check i is in range.
             // TODO: Assert 'N' if not 'Y'
-            int j = 123 + i - 1;
-            char c = m_s[j];
+            int j = i - 1;
+            char c = flags[j];
             return c == 'Y';
         }
 
         public IProductRecord Parse(string s) {
-            m_s = s;
+            RawSampleProductFormat raw = new RawSampleProductFormat(s);
 
             var result = new ProductRecord();
 
-            result.ProductID = int.Parse(s.Substring(0, 8));
-            result.ProductDescription = s.Substring(9, 59).Trim();
+            result.ProductID = int.Parse(raw.ProductId);
+            result.ProductDescription = raw.ProductDescription.Trim();
             
-            result.RegularCalculatorPrice = CalculatorPrice(69, 87, 105);
+            result.RegularCalculatorPrice = CalculatorPrice(raw.RegularSingularPrice,
+                raw.RegularSplitPrice, raw.RegularForX);
             result.RegularDisplayPrice = FormatCurrencyForDisplay(result.RegularCalculatorPrice);
 
-            result.PromotionalCalculatorPrice = CalculatorPrice(78, 96, 114);
+            result.PromotionalCalculatorPrice = CalculatorPrice(raw.PromotionalSingularPrice,
+                raw.PromotionalSplitPrice, raw.PromotionalForX);
             result.PromotionalDisplayPrice = result.PromotionalCalculatorPrice == 0 ?
                 "N/A" :  FormatCurrencyForDisplay(result.PromotionalCalculatorPrice);
 
-            result.TaxRate = CheckFlag(5) ? 7.775m : 0;
-            result.Measure = CheckFlag(3) ? UnitOfMeasure.Pound : UnitOfMeasure.Each;
-            result.ProductSize = s.Substring(133, 9).Trim();
+            result.TaxRate = CheckFlag(raw.Flags, 5) ? 7.775m : 0;
+            result.Measure = CheckFlag(raw.Flags, 3) ? UnitOfMeasure.Pound : UnitOfMeasure.Each;
+            result.ProductSize = raw.ProductSize.Trim();
 
-            m_s = null;
             return result;
         }
     }
