@@ -10,10 +10,8 @@ namespace test
         public void TestBoundaries()
         {
             RawSampleProductFormat raw = new RawSampleProductFormat(
-                "555555550aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab111111110222222220333333330444444440555555550666666660NNNNNNNNNYaaaaaaaaa");
+                "55555555 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa 11111111 22222222 33333333 44444444 55555555 66666666 NNNNNNNNN aaaaaaaaa");
 
-            // TODO: Test against SampleProductFormat instead of ProductRecord class/interface
-            // so that we can check intermediate values like ForX.
             Assert.That(raw.ProductId, Is.EqualTo("55555555"));
             Assert.That(raw.ProductDescription, Is.EqualTo(new String('a', 59)));
             Assert.That(raw.RegularSingularPrice, Is.EqualTo("11111111"));
