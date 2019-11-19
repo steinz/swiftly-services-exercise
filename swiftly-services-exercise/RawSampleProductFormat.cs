@@ -1,4 +1,6 @@
 namespace swiftly_services_exercise {
+    // Exposes named substrings of the sample format defined at
+    // https://github.com/Swiftly-Systems/code-exercise-services/blob/master/ProductInformationIntegrationSpec.md
     public class RawSampleProductFormat {
 
         private string Str;
